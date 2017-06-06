@@ -1,0 +1,175 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "plugins": [
+    "babel",
+    "react",
+    "react-native"
+  ],
+  "extends": ["plugin:react-native/all"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "classes": true,
+      "decorators": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "generators": false,
+      "modules": true,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": false,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "block-scoped-var": 2,
+    "brace-style": [
+      2,
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "camelcase": 2,
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "comma-spacing": [
+      2,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [
+      2,
+      "last"
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "init-declarations": [
+      2,
+      "always"
+    ],
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
+    "keyword-spacing": [
+      2,
+      {
+        "before": false,
+        "after": true,
+        "overrides": {
+          "else": {
+            "before": true
+          },
+          "from": {
+            "before": true
+          },
+          "catch": {
+            "before": true
+          },
+          "as": {
+            "before": true
+          },
+          "return": {
+            "before": true,
+            "after": true
+          }
+        }
+      }
+    ],
+    "new-cap": 0,
+    "no-alert": 2,
+    "no-console": 0,
+    "no-debugger": 2,
+    "no-dupe-keys": 2,
+    "no-empty": 2,
+    "no-extra-semi": 2,
+    "semi": [
+      2,
+      "always"
+    ],
+    "no-inline-comments": 0,
+    "no-irregular-whitespace": 2,
+    "no-lonely-if": 0,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multiple-empty-lines": 2,
+    "no-new": 1,
+    "no-self-compare": 2,
+    "no-undef": 2,
+    "no-shadow": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": [
+      1
+    ],
+    "no-unused-vars": [
+      1,
+      {
+        "vars": "local",
+        "args": "after-used"
+      }
+    ],
+    "no-var": 2,
+    "one-var": [
+      2,
+      "never"
+    ],
+    "prefer-const": 2,
+    "padded-blocks": [
+      2,
+      "never"
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "radix": 2,
+    "space-before-blocks": [
+      2,
+      "always"
+    ],
+    "space-before-function-paren": [
+      2,
+      "never"
+    ],
+    "space-in-brackets": 0,
+    "space-infix-ops": 2,
+    "spaced-comment": [
+      2,
+      "always"
+    ],
+    "strict": [
+      2,
+      "never"
+    ],
+    "vars-on-top": 2
+  }
+}
