@@ -1,20 +1,20 @@
 /**
  * How Long To Beat
- * https://github.com/nmoya/hltb-android-app
+ * https://github.com/nmoya/hltb-mobile-app.git
  * @flow
  */
 
-import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-
 import HomeView from './src/views/HomeView';
+import AboutView from './src/views/AboutView';
 
-export default class HLTB extends Component {
-  render() {
-    return (
-      <HomeView />
-    );
-  }
-}
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-AppRegistry.registerComponent('hltb', () => HLTB);
+const App = StackNavigator({
+  Main: {screen: HomeView},
+  About: {screen: AboutView},
+});
+
+AppRegistry.registerComponent('hltb', () => App);

@@ -1,6 +1,6 @@
 /**
  * Home View
- * https://github.com/nmoya/hltb-android-app
+ * https://github.com/nmoya/hltb-mobile-app.git
  * @flow
  */
 
@@ -14,16 +14,25 @@ import {
 } from 'react-native';
 
 import C from '../constants';
+import Button from 'react-native-buttons';
 
 const ICON = require('../assets/img/hltb_icon.png');
 
 export default class HomeView extends Component {
+  static navigationOptions = {
+    title: 'How Long To Beat',
+  };
+
   constructor(props) {
     super(props);
-    this.state = { query: null };
+    this.state = {
+      query: null,
+      submitDisabled: true,
+      isLoading: false,
+    };
   }
+
   render() {
-    console.log(this.state);
     return (
       <View style={[C.styles.rootContainer, C.styles.spaceBetween]}>
         <View style={[C.styles.row, C.styles.center]}>
@@ -33,7 +42,7 @@ export default class HomeView extends Component {
         {this.renderTextInput()}
         <Text
           style={C.styles.h4}
-          onPress={this.onAbout}>{'About'}</Text>
+          onPress={this.onAbout.bind(this)}>{'About'}</Text>
       </View>
     );
   }
@@ -48,18 +57,47 @@ export default class HomeView extends Component {
           autoFocus={false}
           returnKeyType={'search'}
           placeholder={'Search for games ...'}
-          onChangeText={(text) => this.setState({query: text})}
+          onChangeText={this.onTextChange.bind(this)}
           onSubmitEditing={this.onSubmit.bind(this)}
         />
-        <View style={[styles.submitButton, C.styles.center]}>
-          <Text>{'Search'}</Text>
-        </View>
+        <Button
+          onPress={this.onSubmit.bind(this)}
+          type='surface'
+          size='small'
+          theme='default'
+          disableColor={C.colors.gray}
+          selfStyle={styles.submitButton}
+          isLoading={this.state.isLoading}
+          loadingTitle='Loading'
+          disabled={this.state.submitDisabled}>
+          Search
+        </Button>
       </View>
     );
   }
 
+  onTextChange(text) {
+    this.setState({query: text, submitDisabled: text === ''});
+  }
+
   onSubmit() {
+    if (!this.state.query) return;
+    this.setState({isLoading: true});
+    fetch('http://howlongtobeat.com')
+      .then((response) => {
+        console.log(response);
+        this.setState({isLoading: false});
+      })
+      .catch((response) => {
+        console.log(response);
+        this.setState({isLoading: false});
+      });
     console.log('Submitted with text ' + this.state.query);
+  }
+
+  onAbout() {
+    // Not working on Android
+    this.props.navigation.navigate('About');
   }
 }
 
@@ -78,11 +116,12 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     marginRight: C.sizes.smallPadding,
+    borderWidth: 0,
+    borderColor: C.colors.black,
   },
 
   submitButton: {
-    padding: C.sizes.smallPadding,
-    backgroundColor: C.colors.gray,
+    height: C.sizes.defaultHeight,
   },
 
 });

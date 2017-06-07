@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     padding: sizes.padding,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: colors.black,
   },
 
