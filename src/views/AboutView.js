@@ -28,7 +28,7 @@ export default class AboutView extends Component {
       <View style={[C.styles.rootContainer]}>
       <Markdown>
         First of all, thanks to [How Long to Beat](http://howlongtobeat.com) for providing such an awesome service. All
-        credit belongs to them.{'\n\n'}
+        credit belongs to them. You are encouraged to [donate](https://howlongtobeat.com/donate.php) in their website.{'\n\n'}
 
         This is a open-source, unofficial, and non-commercial mobile app for How Long To Beat. The code base of this
         project is hosted on [GitHub](https://github.com/nmoya/hltb-mobile-app.git). Feel free to contribute with issues
