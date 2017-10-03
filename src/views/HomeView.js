@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  Alert,
   View,
   Image,
   TextInput,
@@ -90,7 +91,7 @@ export default class HomeView extends Component {
         this.props.navigation.navigate('Results', {games: games});
       })
       .catch((error) => {
-        console.log(error);
+        Alert.alert('Ooops!', `An error has occurred, please let me know via Twitter (@nikolasmoya).\n\n${error}`);
       })
       .then(() => {
         this.setState({isLoading: false});
