@@ -15,6 +15,8 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
 } from 'react-native';
+import Markdown from 'react-native-simple-markdown';
+import Hr from 'react-native-hr';
 
 import C from '../constants';
 
@@ -31,7 +33,9 @@ export default class ResultsView extends Component {
 
   renderTime = (time, i) => {
     return (
-      <Text style={styles.baseCategory} key={i}>{ `${time.category}: ${time.time}` }</Text>
+      <Markdown key={i}>
+        ** { time.category } **: { time.time.replace(" Hours", "h").replace("½", ".5") }
+      </Markdown>
     );
   }
 
@@ -45,7 +49,7 @@ export default class ResultsView extends Component {
         <Image style={styles.gameCover} source={{uri: item.img}}/>
         <View style={[C.styles.column, styles.baseTimeView]}>
           <Text style={styles.gameTitle}>{ item.title }</Text>
-          <Text>{'\n\n'}</Text>
+          <Text>{'\n'}</Text>
           { this.renderTimes(item) }
         </View>
       </View>
@@ -53,7 +57,9 @@ export default class ResultsView extends Component {
   }
 
   renderSeparator = () => {
-    return null;
+    return (
+      <Hr lineColor='#b3b3b3'/>
+    );
   }
 
   render() {
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
   baseGame: {
     justifyContent: 'flex-start',
     marginBottom: C.sizes.padding,
-    marginRight: C.sizes.padding,
+    marginTop: C.sizes.padding,
   },
   gameCover: {
     width: 170,
@@ -85,12 +91,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   gameTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  baseTime: {
-  },
-  baseCategory: {
-    marginTop: 3,
+    fontSize: 18,
   },
 });
