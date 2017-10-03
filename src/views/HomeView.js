@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 import C from '../constants';
+import HltbRequester from '../networking/HltbRequester';
 import Button from 'react-native-buttons';
 
 const ICON = require('../assets/img/hltb_icon.png');
@@ -42,7 +43,7 @@ export default class HomeView extends Component {
         {this.renderTextInput()}
         <Text
           style={C.styles.h4}
-          onPress={this.onAbout.bind(this)}>{'About'}</Text>
+          onPress={this.onAbout}>{'About'}</Text>
       </View>
     );
   }
@@ -57,8 +58,8 @@ export default class HomeView extends Component {
           autoFocus={false}
           returnKeyType={'search'}
           placeholder={'Search for games ...'}
-          onChangeText={this.onTextChange.bind(this)}
-          onSubmitEditing={this.onSubmit.bind(this)}
+          onChangeText={this.onTextChange}
+          onSubmitEditing={this.onSubmit}
         />
         <Button
           onPress={this.onSubmit.bind(this)}
@@ -76,27 +77,27 @@ export default class HomeView extends Component {
     );
   }
 
-  onTextChange(text) {
+  onTextChange = (text) => {
     this.setState({query: text, submitDisabled: text === ''});
   }
 
-  onSubmit() {
-    if (!this.state.query) return;
+  onSubmit = () => {
+    if (!this.state.query || this.state.query.length === 0) return;
     this.setState({isLoading: true});
-    fetch('http://howlongtobeat.com')
-      .then((response) => {
-        console.log(response);
-        this.setState({isLoading: false});
+    console.log(this.state.query);
+    HltbRequester.fetchAndParse(this.state.query)
+      .then((games) => {
+        this.props.navigation.navigate('Results', {games: games});
       })
-      .catch((response) => {
-        console.log(response);
+      .catch((error) => {
+        console.log(error);
+      })
+      .then(() => {
         this.setState({isLoading: false});
       });
-    console.log('Submitted with text ' + this.state.query);
   }
 
-  onAbout() {
-    // Not working on Android
+  onAbout = () => {
     this.props.navigation.navigate('About');
   }
 }
