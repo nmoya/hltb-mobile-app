@@ -23,6 +23,7 @@ const ICON = require('../assets/img/hltb_icon.png');
 export default class HomeView extends Component {
   static navigationOptions = {
     title: 'How Long To Beat',
+    header: null
   };
 
   constructor(props) {

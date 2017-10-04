@@ -16,7 +16,9 @@ import {
 const App = StackNavigator({
   Main: {screen: HomeView},
   About: {screen: AboutView},
-  Results: {screen: ResultsView},
-});
+  Results: {screen: ResultsView}},
+  {
+    headerMode: 'screen'
+  });
 
 AppRegistry.registerComponent('hltb', () => App);
