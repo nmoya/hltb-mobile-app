@@ -12,6 +12,7 @@ import {
   View,
   Image,
   TextInput,
+  Keyboard,
 } from 'react-native';
 
 import C from '../constants';
@@ -64,7 +65,7 @@ export default class HomeView extends Component {
           onSubmitEditing={this.onSubmit}
         />
         <Button
-          onPress={this.onSubmit.bind(this)}
+          onPress={this.onSubmit}
           type='surface'
           size='small'
           theme='default'
@@ -85,8 +86,8 @@ export default class HomeView extends Component {
 
   onSubmit = () => {
     if (!this.state.query || this.state.query.length === 0) return;
+    Keyboard.dismiss();
     this.setState({isLoading: true});
-    console.log(this.state.query);
     HltbRequester.fetchAndParse(this.state.query)
       .then((games) => {
         this.props.navigation.navigate('Results', {games: games});
