@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-buttons",
+        "scope": null,
+        "escapedName": "react-native-buttons",
+        "name": "react-native-buttons",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/nmoya/Repos/hltb-mobile-app"
+    ]
+  ],
+  "_from": "react-native-buttons@latest",
+  "_id": "react-native-buttons@0.0.4",
+  "_inCache": true,
+  "_location": "/react-native-buttons",
+  "_nodeVersion": "6.7.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-native-buttons-0.0.4.tgz_1489651639884_0.7761474933940917"
+  },
+  "_npmUser": {
+    "name": "lulutia",
+    "email": "nowillnowill@gmail.com"
+  },
+  "_npmVersion": "4.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-buttons",
+    "scope": null,
+    "escapedName": "react-native-buttons",
+    "name": "react-native-buttons",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-buttons/-/react-native-buttons-0.0.4.tgz",
+  "_shasum": "6ae98074b9923f2dc1492b85f4ae3b5d5aba0a13",
+  "_shrinkwrap": null,
+  "_spec": "react-native-buttons",
+  "_where": "/home/nmoya/Repos/hltb-mobile-app",
+  "author": {
+    "name": "xgfe"
+  },
+  "bugs": {
+    "url": "https://github.com/xgfe/react-native-ui-xg/issues"
+  },
+  "dependencies": {
+    "react-native-colortool": "^0.0.1",
+    "react-native-stylesheet-xg": "^1.0.3"
+  },
+  "description": "react native button for android.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "6ae98074b9923f2dc1492b85f4ae3b5d5aba0a13",
+    "tarball": "https://registry.npmjs.org/react-native-buttons/-/react-native-buttons-0.0.4.tgz"
+  },
+  "homepage": "https://github.com/xgfe/react-native-datepicker/components/Button#readme",
+  "keywords": [
+    "react-native",
+    "Button"
+  ],
+  "license": "MIT",
+  "main": "Button.js",
+  "maintainers": [
+    {
+      "name": "lulutia",
+      "email": "nowillnowill@gmail.com"
+    }
+  ],
+  "name": "react-native-buttons",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xgfe/react-native-ui-xg.git"
+  },
+  "scripts": {},
+  "version": "0.0.4"
+}

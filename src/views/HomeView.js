@@ -16,7 +16,7 @@ import {
 
 import C from '../constants';
 import HltbRequester from '../networking/HltbRequester';
-import Button from 'react-native-buttons';
+import Button from '../generic/react-native-buttons';
 
 const ICON = require('../assets/img/hltb_icon.png');
 
