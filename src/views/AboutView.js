@@ -10,11 +10,14 @@ import {
   View,
   Image,
   Linking,
+  ScrollView,
+  Text,
   TouchableWithoutFeedback,
 } from 'react-native';
 
 import C from '../constants';
 import Markdown from 'react-native-simple-markdown';
+const pjson = require('../../package.json');
 
 export default class AboutView extends Component {
   static navigationOptions = {
@@ -25,6 +28,7 @@ export default class AboutView extends Component {
   }
   render() {
     return (
+      <ScrollView>
       <View style={[C.styles.rootContainer]}>
       <Markdown>
         First of all, thanks to [How Long to Beat](http://howlongtobeat.com) for providing such an awesome service. All
@@ -36,21 +40,24 @@ export default class AboutView extends Component {
 
         This project is mainly maintained by [Nikolas Moya](http://nikolasmoya.com), computer scientist and a lazy
         gamer who wanted a minimalistic interface to check game stats.{'\n\n'}
-
-        Here is a list of useful reference links:
       </Markdown>
-      <View style={[C.styles.row, styles.marginTop]}>
+      <View style={[C.styles.column, styles.marginTop]}>
+        <Text style={styles.imageLabel}>Visit the official website: </Text>
         <TouchableWithoutFeedback onPress={this.onHLTBLogo}>
           <Image source={require('../assets/img/hltb_logo.png')} style={styles.iconSize} />
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={this.onGithubLogo}>
-          <Image source={require('../assets/img/github_icon.png')} style={styles.iconSize} />
-        </TouchableWithoutFeedback>
+        <Text style={styles.imageLabel}>Share this app: </Text>
         <TouchableWithoutFeedback onPress={this.onPlayStoreLogo}>
           <Image source={require('../assets/img/play_icon.png')} style={styles.iconSize} />
         </TouchableWithoutFeedback>
+        <Text style={styles.imageLabel}>Contribute to this project: </Text>
+        <TouchableWithoutFeedback onPress={this.onGithubLogo}>
+          <Image source={require('../assets/img/github_icon.png')} style={styles.iconSize} />
+        </TouchableWithoutFeedback>
       </View>
+      <Text> App version: { pjson.version } </Text>
       </View>
+      </ScrollView>
     );
   }
 
@@ -78,4 +85,7 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 10,
   },
+  imageLabel: {
+    marginTop: 10,
+  }
 });
