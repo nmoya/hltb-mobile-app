@@ -16,7 +16,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import Markdown from 'react-native-simple-markdown';
-import Hr from 'react-native-hr';
+import Hr from '../generic/Hr';
 
 import C from '../constants';
 
@@ -58,7 +58,7 @@ export default class ResultsView extends Component {
 
   renderSeparator = () => {
     return (
-      <Hr lineColor='#b3b3b3'/>
+      <Hr/>
     );
   }
 
