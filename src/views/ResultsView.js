@@ -32,10 +32,17 @@ export default class ResultsView extends Component {
   }
 
   renderTime = (time, i) => {
+    const timeStr = time.time.replace(" Hours", "h").replace("½", ".5");
+    const category = time.category;
     return (
-      <Markdown key={i}>
-        ** { time.category } **: { time.time.replace(" Hours", "h").replace("½", ".5") }
-      </Markdown>
+      <View style={[C.styles.row, styles.timeContainerView]} key={i}>
+        <View style={styles.categoryView}>
+          <Markdown>**{ category }**</Markdown>
+        </View>
+        <View>
+          <Text style={styles.timeStyle}>{ timeStr }</Text>
+        </View>
+      </View>
     );
   }
 
@@ -93,4 +100,14 @@ const styles = StyleSheet.create({
   gameTitle: {
     fontSize: 18,
   },
+  timeContainerView: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  timeStyle: {
+    alignItems: 'flex-end',
+  },
+  categoryView: {
+    width: 100,
+  }
 });
