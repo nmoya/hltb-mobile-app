@@ -53,14 +53,22 @@ export default class ResultsView extends Component {
   renderGame = ({item}) => {
     return (
       <View style={[C.styles.row, styles.baseGame]}>
-        <Image style={styles.gameCover} source={{uri: item.img}}/>
+        <TouchableWithoutFeedback onPress={this.openUrl(item.gameUrl)}>
+          <Image style={styles.gameCover} source={{uri: item.img}}/>
+        </TouchableWithoutFeedback>
         <View style={[C.styles.column, styles.baseTimeView]}>
-          <Text style={styles.gameTitle}>{ item.title }</Text>
+          <Text style={styles.gameTitle} onPress={this.openUrl(item.gameUrl)}>{ item.title }</Text>
           <Text>{'\n'}</Text>
           { this.renderTimes(item) }
         </View>
       </View>
     );
+  }
+
+  openUrl = (url) => {
+    return () => {
+      Linking.openURL(url);
+    }
   }
 
   renderSeparator = () => {

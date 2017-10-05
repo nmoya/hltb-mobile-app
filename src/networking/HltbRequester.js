@@ -9,7 +9,8 @@ function transformHtml($) {
     .each((i, aTag) => {
       const title = aTag.attribs.title;
       const img = BASE_URL + $(aTag).find('img').attr('src');
-      games.push({id: i, title: title, img: img, times: []});
+      const url = BASE_URL + aTag.attribs.href;
+      games.push({id: i, title: title, img: img, gameUrl: url, times: []});
   });
 
   $('.search_list_details_block').each((i, detail) => {
