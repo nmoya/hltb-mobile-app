@@ -2,6 +2,11 @@ import cheerio from 'react-native-cheerio';
 
 const BASE_URL = 'https://howlongtobeat.com/';
 
+function isInfiniteGame($, detail) {
+  const shortDiv = $(detail).find('.search_list_tidbit_short');
+  return shortDiv && shortDiv[0] && shortDiv[0].attribs !== undefined;
+}
+
 function transformHtml($) {
   const games = []
   $('a')
@@ -16,7 +21,29 @@ function transformHtml($) {
   $('.search_list_details_block').each((i, detail) => {
     const game = games[i];
     let currentStat;
-    $(detail)
+    if (isInfiniteGame($, detail)) {
+      // Games like World of Warcraft, Hearthstone, Heroes of the Storm are treated differently.
+      // They dont have the regular Main, Main + extras, etc, categories. Instead
+      // they are organized under a different structure of divs, one class for the category name
+      // and another class for the estimated length.
+      const categories = [];
+      $(detail)
+      .find('.search_list_tidbit_short')
+      .each((i, stat) => {
+        categories.push(stat.children[0].data);
+      });
+      $(detail)
+      .find('.search_list_tidbit_long')
+      .each((i, stat) => {
+        const cssClass = stat.attribs.class;
+        game.times.push({
+          category: categories[i],
+          confidence: cssClass.replace('search_list_tidbit_long center time_', ''),
+          time: stat.children[0].data
+        });
+      });
+    } else {
+      $(detail)
       .find('.search_list_tidbit')
       .each((i, stat) => {
         if (i % 2 === 0) {
@@ -29,9 +56,10 @@ function transformHtml($) {
           currentStat.time = $(stat).text();
           game.times.push(currentStat);
         }
-      })
+      });
+    }
     games[i] = game;
-  })
+  });
   return games;
 }
 
