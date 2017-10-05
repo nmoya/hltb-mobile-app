@@ -1,4 +1,4 @@
-package com.hltb;
+package com.nikolasmoya.hltb;
 
 import com.facebook.react.ReactActivity;
 

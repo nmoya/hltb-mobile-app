@@ -1,4 +1,4 @@
-package com.hltb;
+package com.nikolasmoya.hltb;
 
 import android.app.Application;
 
