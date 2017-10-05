@@ -78,15 +78,21 @@ export default class ResultsView extends Component {
   }
 
   render() {
-    return (
-      <View style={[C.styles.rootContainer, C.styles.column]}>
-        <FlatList
-          data={this.state.games}
-          renderItem={this.renderGame}
-          ItemSeparatorComponent={this.renderSeparator}
-          keyExtractor={item => item.id}/>
-      </View>
-    );
+    if (this.state.games.length === 0) {
+      return (
+        <Text style={styles.noGamesFoundLabel}> Oops! No games were found </Text>
+      );
+    } else {
+      return (
+        <View style={[C.styles.rootContainer, C.styles.column]}>
+          <FlatList
+            data={this.state.games}
+            renderItem={this.renderGame}
+            ItemSeparatorComponent={this.renderSeparator}
+            keyExtractor={item => item.id}/>
+        </View>
+      );
+    }
   }
 }
 
@@ -117,5 +123,11 @@ const styles = StyleSheet.create({
   },
   categoryView: {
     width: 100,
-  }
+  },
+  noGamesFoundLabel: {
+    paddingTop: 50,
+    fontSize: 20,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
 });
