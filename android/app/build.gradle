@@ -90,8 +90,8 @@ android {
         applicationId "com.nikolasmoya.hltb"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 200000300
-        versionName "2.0.3"
+        versionCode 200000400
+        versionName "2.0.4"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
