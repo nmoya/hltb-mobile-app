@@ -13,7 +13,7 @@ function transformHtml($) {
     .filter((_, aTag) => !$(aTag).attr('class'))
     .each((i, aTag) => {
       const title = aTag.attribs.title;
-      const img = BASE_URL + $(aTag).find('img').attr('src');
+      const img = $(aTag).find('img').attr('src');
       const url = BASE_URL + aTag.attribs.href;
       games.push({id: i, title: title, img: img, gameUrl: url, times: []});
   });
