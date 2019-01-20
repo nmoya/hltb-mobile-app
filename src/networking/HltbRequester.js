@@ -78,7 +78,7 @@ function fetchAndParse(queryString) {
       formBody.push(encodedKey + "=" + encodedValue);
     }
     formBody = formBody.join("&");
-    fetch('https://howlongtobeat.com/search_main.php?page=1', {
+    fetch('https://howlongtobeat.com/search_results.php?page=1', {
       method: 'POST',
       headers: {
         'Accept': '*/*',
