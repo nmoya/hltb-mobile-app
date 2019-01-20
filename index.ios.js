@@ -10,10 +10,10 @@ import AboutView from './src/views/AboutView';
 import ResultsView from './src/views/ResultsView';
 
 import {
-  StackNavigator,
+  createStackNavigator,
 } from 'react-navigation';
 
-const App = StackNavigator({
+const App = createStackNavigator({
   Main: {screen: HomeView},
   About: {screen: AboutView},
   Results: {screen: ResultsView}},

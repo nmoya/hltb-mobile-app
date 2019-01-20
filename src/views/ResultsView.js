@@ -89,7 +89,7 @@ export default class ResultsView extends Component {
             data={this.state.games}
             renderItem={this.renderGame}
             ItemSeparatorComponent={this.renderSeparator}
-            keyExtractor={item => item.id}/>
+            keyExtractor={item => item.id.toString()}/>
         </View>
       );
     }

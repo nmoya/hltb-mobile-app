@@ -59,6 +59,7 @@ export default class HomeView extends Component {
           autoCapitalize={'words'}
           autoCorrect={false}
           autoFocus={false}
+          underlineColorAndroid={C.colors.black}
           returnKeyType={'search'}
           placeholder={'Search for games ...'}
           onChangeText={this.onTextChange}

@@ -10,10 +10,11 @@ import AboutView from './src/views/AboutView';
 import ResultsView from './src/views/ResultsView';
 
 import {
-  StackNavigator,
+  createStackNavigator,
+  createAppContainer,
 } from 'react-navigation';
 
-const App = StackNavigator({
+const RootStack = createStackNavigator({
   Main: {screen: HomeView},
   About: {screen: AboutView},
   Results: {screen: ResultsView}},
@@ -21,4 +22,4 @@ const App = StackNavigator({
     headerMode: 'screen'
   });
 
-AppRegistry.registerComponent('hltb', () => App);
+AppRegistry.registerComponent('hltb', () => createAppContainer(RootStack));
