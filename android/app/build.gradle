@@ -94,8 +94,8 @@ android {
         applicationId "com.nikolasmoya.hltb"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 200000500
-        versionName "2.0.5"
+        versionCode 200100000
+        versionName "2.1.0"
     }
     signingConfigs {
         release {
