@@ -1,8 +1,11 @@
 package com.nikolasmoya.hltb;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactInstanceManager;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import java.lang.reflect.InvocationTargetException;
 import com.facebook.react.ReactNativeHost;
@@ -56,7 +59,7 @@ public class MainApplication extends Application implements ReactApplication {
    * @param reactInstanceManager
    */
   private static void initializeFlipper(
-      Context context, ReactInstanceManager reactInstanceManager) {
+          Context context, ReactInstanceManager reactInstanceManager) {
     if (BuildConfig.DEBUG) {
       try {
         /*
