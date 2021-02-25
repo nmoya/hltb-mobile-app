@@ -23,6 +23,8 @@ out/
 .gradle
 .gradle/
 build/
+# CocoaPods
+/ios/Pods/
 
 # Signing files
 .signing/

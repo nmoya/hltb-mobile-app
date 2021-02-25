@@ -9,9 +9,7 @@ import HomeView from './src/views/HomeView';
 import AboutView from './src/views/AboutView';
 import ResultsView from './src/views/ResultsView';
 
-import {
-  createStackNavigator,
-} from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 const App = createStackNavigator({
   Main: {screen: HomeView},
