@@ -19,7 +19,10 @@
     "react-native-screens": "^2.18.0",
     "react-native-simple-markdown": "^1.1.0",
     "react-native-stylesheet-xg": "^1.1.0",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^4.4.4",
+    "react-navigation-drawer": "^1.4.0",
+    "react-navigation-stack": "^1.7.3",
+    "react-navigation-tabs": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
