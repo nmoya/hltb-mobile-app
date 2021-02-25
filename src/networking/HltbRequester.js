@@ -1,7 +1,5 @@
 import cheerio from 'react-native-cheerio';
 
-const BASE_URL = 'https://howlongtobeat.com/';
-
 function isInfiniteGame($, detail) {
   const shortDiv = $(detail).find('.search_list_tidbit_short');
   return shortDiv && shortDiv[0] && shortDiv[0].attribs !== undefined;
@@ -13,8 +11,10 @@ function transformHtml($) {
     .filter((_, aTag) => !$(aTag).attr('class'))
     .each((i, aTag) => {
       const title = aTag.attribs.title;
-      const img = $(aTag).find('img').attr('src');
-      const url = BASE_URL + aTag.attribs.href;
+      const img_src = $(aTag).find('img').attr('src');
+      const href = aTag.attribs.href;
+      const img = "https://howlongtobeat.com" + img_src;
+      const url = "https://howlongtobeat.com/" + href;
       games.push({id: i, title: title, img: img, gameUrl: url, times: []});
   });
 
