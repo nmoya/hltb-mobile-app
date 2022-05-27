@@ -1,7 +1,7 @@
 <manifest package="com.nikolasmoya.hltb"
           xmlns:android="http://schemas.android.com/apk/res/android"
-          android:versionCode="200200200"
-          android:versionName="2.2.2">
+          android:versionCode="200200300"
+          android:versionName="2.2.3">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
