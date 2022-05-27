@@ -1,6 +1,6 @@
 {
   "name": "hltb",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "graceful-fs": "^4.2.6",
+    "howlongtobeat": "^1.5.1",
     "prop-types": "^15.6.0",
     "react": "16.13.1",
     "react-native": "0.63.4",
-    "react-native-cheerio": "^1.0.0-rc.4",
     "react-native-colortool": "^0.0.1",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-screens": "^2.18.0",

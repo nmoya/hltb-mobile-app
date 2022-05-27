@@ -12,7 +12,7 @@ const colors = {
 };
 
 const sizes = {
-  padding: 20,
+  padding: 10,
   smallPadding: 7,
   defaultHeight: 40,
   h1: 24,

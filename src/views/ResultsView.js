@@ -32,15 +32,15 @@ export default class ResultsView extends Component {
   }
 
   renderTime = (time, i) => {
-    const timeStr = time.time.replace(" Hours", "h").replace("½", ".5");
+    const timeStr = time.time;
     const category = time.category;
     return (
       <View style={[C.styles.row, styles.timeContainerView]} key={i}>
         <View style={styles.categoryView}>
-          <Markdown>**{ category }**</Markdown>
+          <Markdown>**{category}**</Markdown>
         </View>
         <View>
-          <Text style={styles.timeStyle}>{ timeStr }</Text>
+          <Text style={styles.timeStyle}>{timeStr}</Text>
         </View>
       </View>
     );
@@ -50,16 +50,17 @@ export default class ResultsView extends Component {
     return game.times.map((time, i) => this.renderTime(time, i));
   }
 
-  renderGame = ({item}) => {
+  renderGame = ({ item }) => {
     return (
       <View style={[C.styles.row, styles.baseGame]}>
         <TouchableWithoutFeedback onPress={this.openUrl(item.gameUrl)}>
-          <Image style={styles.gameCover} source={{uri: item.img}}/>
+          <Image style={styles.gameCover} source={{ uri: item.img }} />
         </TouchableWithoutFeedback>
         <View style={[C.styles.column, styles.baseTimeView]}>
-          <Text style={styles.gameTitle} onPress={this.openUrl(item.gameUrl)}>{ item.title }</Text>
+          <Text style={styles.gameTitle} onPress={this.openUrl(item.gameUrl)} adjustsFontSizeToFit={true}
+            numberOfLines={1}>{item.title}</Text>
           <Text>{'\n'}</Text>
-          { this.renderTimes(item) }
+          {this.renderTimes(item)}
         </View>
       </View>
     );
@@ -73,7 +74,7 @@ export default class ResultsView extends Component {
 
   renderSeparator = () => {
     return (
-      <Hr/>
+      <Hr />
     );
   }
 
@@ -89,7 +90,7 @@ export default class ResultsView extends Component {
             data={this.state.games}
             renderItem={this.renderGame}
             ItemSeparatorComponent={this.renderSeparator}
-            keyExtractor={item => item.id.toString()}/>
+            keyExtractor={item => item.id.toString()} />
         </View>
       );
     }
