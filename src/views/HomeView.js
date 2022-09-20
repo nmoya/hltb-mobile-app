@@ -40,7 +40,7 @@ export default class HomeView extends Component {
     return (
       <View style={[C.styles.rootContainer, C.styles.spaceBetween]}>
         <View style={[C.styles.row, C.styles.center]}>
-          <Image source={ICON} style={styles.iconSize}/>
+          <Image source={ICON} style={styles.iconSize} />
           <Text style={C.styles.h1}>{'How Long To Beat?'}</Text>
         </View>
         {this.renderTextInput()}
@@ -82,22 +82,22 @@ export default class HomeView extends Component {
   }
 
   onTextChange = (text) => {
-    this.setState({query: text, submitDisabled: text === ''});
+    this.setState({ query: text, submitDisabled: text === '' });
   }
 
   onSubmit = () => {
     if (!this.state.query || this.state.query.length === 0) return;
     Keyboard.dismiss();
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
     HltbRequester.fetchAndParse(this.state.query)
       .then((games) => {
-        this.props.navigation.navigate('Results', {games: games});
+        this.props.navigation.navigate('Results', { games: games });
       })
       .catch((error) => {
         Alert.alert('Ooops!', `An error has occurred, please let me know via Twitter (@nikolasmoya).\n\n${error}`);
       })
       .then(() => {
-        this.setState({isLoading: false});
+        this.setState({ isLoading: false });
       });
   }
 

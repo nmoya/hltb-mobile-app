@@ -122,8 +122,8 @@ android {
         applicationId "com.nikolasmoya.hltb"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 200200300
-        versionName "2.2.3"
+        versionCode 200200400
+        versionName "2.2.4"
     }
     signingConfigs {
         debug {
