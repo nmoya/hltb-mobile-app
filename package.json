@@ -13,7 +13,7 @@
     "graceful-fs": "^4.2.6",
     "prop-types": "^15.6.0",
     "react": "16.13.1",
-    "react-native": "0.63.4",
+    "react-native": "0.64.1",
     "react-native-colortool": "^0.0.1",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-screens": "^2.18.0",
