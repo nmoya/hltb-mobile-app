@@ -1,3 +1,6 @@
+# This project is retired! I don't have an Android phone anymore and the updates are very time consuming.
+# I recommend using the mobile version of https://howlongtobeat.com in your browser
+
 # HLTB Mobile App
 
 ![hltb Version][hltb-image]
